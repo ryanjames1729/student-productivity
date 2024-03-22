@@ -1,5 +1,6 @@
 'use client'
-
+import Footer from "./components/footer";
+import Header from "./components/header";
 
 import { useState } from "react";
 
@@ -23,6 +24,8 @@ export default function Home() {
 
 
   return (
+    <>
+    <Header />
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <form onSubmit={(event)=>{
         event.preventDefault();
@@ -62,5 +65,7 @@ export default function Home() {
         ))}
         </ul>
     </main>
+    <Footer />
+    </>
   );
 }
