@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function Footer() {
     return (
         
-<footer className="flex justify-center items-center h-24 bg-gray-100 text-slate-800">
+<footer className="flex justify-center items-center h-24 bg-gray-100 text-slate-800 w-full">
     <p>
       Built with{" "}
       <span role="img" aria-label="heart">
