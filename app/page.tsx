@@ -15,13 +15,15 @@ export default function Home() {
     <Header />
     <main className={`${albert.className} flex min-h-screen flex-col items-center justify-between lg:pt-24 pt-12`}>
       
-      <section className="flex flex-col items-center justify-center h-screen w-full rounded-xl shadow-lg lg:px-24 px-12 lg:pb-24 pb-12">
+      <section className="flex flex-col items-center justify-center h-screen w-full rounded-xl shadow-lg px-12 lg:px-24 lg:pb-24 pb-12">
         <h2 className="lg:text-8xl text-4xl">With&nbsp;
-        <span className="bg-gradient-to-r from-red-400 to-indigo-400 inline-block text-transparent bg-clip-text hover:underline"> myFocus</span>, stay on &nbsp;
+        <span className="bg-gradient-to-r from-red-400 to-indigo-400 inline-block text-transparent bg-clip-text hover:underline"> myFocus</span>, stay on&nbsp;
         <span className="text-red-400">track</span>, stay&nbsp;
         <span className="text-red-400">updated</span>, and get your work done&nbsp;
         <span className="text-red-400">on time.</span></h2>
-        <button className="bg-gradient-to-r from-red-400 to-indigo-400 text-white text-2xl lg:p-4 p-2 rounded-lg mt-8 lg:w-1/4">Get Started Now</button>
+        <button className="bg-gradient-to-r from-red-400 to-indigo-400 text-white text-2xl lg:p-4 p-2 rounded-lg mt-8 lg:w-1/4" onClick={()=>{
+          window.alert("Coming soon! We're working as fast as we can to get myFocus ready for you!")
+        }}>Get Started Now</button>
         <Link href="/sample-task" className="w-full flex items-center justify-center">
         <button className="bg-red-400 hover:bg-indigo-400 text-white text-2xl lg:p-4 p-2 rounded-lg mt-4 lg:w-1/4">Try it Out!</button>
         </Link>
