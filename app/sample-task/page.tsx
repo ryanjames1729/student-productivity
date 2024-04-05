@@ -9,7 +9,7 @@ export default function sampleTask() {
   return (
     <>
     <Header />
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-start p-24">
       <Tasks />
     </main>
     <Footer />

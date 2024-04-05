@@ -22,7 +22,7 @@ export default function Tasks() {
 
   return (
     <>
-      <form onSubmit={(event)=>{
+      <form className="m-0" onSubmit={(event)=>{
         event.preventDefault();
         const task = document.getElementById("task") as HTMLInputElement;
         const date = document.getElementById("date") as HTMLInputElement;
@@ -44,7 +44,8 @@ export default function Tasks() {
         <input type="date" id="date" name="date" className="w-full p-2 rounded-md text-black" />
         <button type="submit" className="bg-blue-500 text-white p-2 rounded-md">Add Task</button>
       </form>
-
+      
+      <div className="m-0">
       <ul className="flex flex-col gap-4">
         {myTasks.map((task, index) => (
           <li key={index} className={`flex flex-col justify-between items-center bg-gray-100 p-4 rounded-md 
@@ -59,6 +60,7 @@ export default function Tasks() {
           </li>
         ))}
         </ul>
+        </div>
     </>
   );
 }
