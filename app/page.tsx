@@ -12,6 +12,12 @@ export default function Home() {
 
   return (
     <>
+    <head>
+    <meta property="og:image" content="<generated>" />
+<meta property="og:image:type" content="<generated>" />
+<meta property="og:image:width" content="<generated>" />
+<meta property="og:image:height" content="<generated>" />
+    </head>
     <Header />
     <main className={`${albert.className} flex min-h-screen flex-col items-center justify-between lg:pt-24 pt-12`}>
       
