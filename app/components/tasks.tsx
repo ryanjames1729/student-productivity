@@ -8,10 +8,12 @@ export default function Tasks() {
     {
       task: "Task 1",
       date: new Date(),
+      complete: false
     },
     {
       task: "Task 2",
       date: new Date(),
+      complete: false
     },
   ]);
 
@@ -31,8 +33,21 @@ export default function Tasks() {
           {
             task: task.value,
             date: new Date(date.value + "T01:00:00"),
+            complete: false
           },
         ]);
+        let sorted = [
+          ...myTasks,
+          {
+            task: task.value,
+            date: new Date(date.value + "T01:00:00"),
+            complete: false
+          },
+        ]
+        sorted.sort((a, b) => a.date.getTime() - b.date.getTime());
+        setMyTasks(sorted);
+        console.log(sorted);
+
         task.value = "";
         date.value = "";
         setTask("");
@@ -45,18 +60,34 @@ export default function Tasks() {
         <button type="submit" className="bg-blue-500 text-white p-2 rounded-md">Add Task</button>
       </form>
       
-      <div className="m-0">
-      <ul className="flex flex-col gap-4">
+      <div className="m-0 pt-2 w-full">
+      <ul className="flex flex-wrap gap-6 items-center justify-center">
         {myTasks.map((task, index) => (
-          <li key={index} className={`flex flex-col justify-between items-center bg-gray-100 p-4 rounded-md 
+          <li key={index} className={`flex flex-col bg-gray-100 p-4 rounded-md md:w-[30%] w-full
           ${task.date.getTime() - new Date().getTime() < 86400000*3 && !(task.date.getTime() - new Date().getTime() < 86400000) ? "bg-green-500" : ""}
           ${task.date.getTime() - new Date().getTime() < 86400000 ? "bg-red-500" : ""}
+          ${task.complete ? "bg-slate-500" : ""}
           `}>
-            <p className="text-black text-bold">{task.task}</p>
-            <p className="text-black">Due: {task.date.toLocaleDateString()}</p>
-            <button className="text-slate-800"onClick={() => {
-              setMyTasks(myTasks.filter((_, i) => i !== index));
-            }}>Delete</button>
+            <div className="flex flex-row-reverse w-full">
+            <button onClick={()=>{
+              let newTasks = [...myTasks];
+              newTasks[index].complete = !newTasks[index].complete;
+              setMyTasks(newTasks);
+            }}><span className="align-right">{task.complete ? "✅" : "✖️"}</span></button>
+            </div>
+            
+            {task.complete ? 
+              <><p className="text-black text-bold line-through">{task.task}</p>
+              <p className="text-black line-through">Due: {task.date.toLocaleDateString()}</p></>
+              : <><p className="text-black text-bold">{task.task}</p>
+                <p className="text-black">Due: {task.date.toLocaleDateString()}</p></>
+            }
+
+            <button onClick={()=>{
+              let newTasks = [...myTasks];
+              newTasks.splice(index, 1);
+              setMyTasks(newTasks);
+            }}><span className="align-right border-2 rounded-md border-slate-500 hover:border-slate-800 hover:bg-slate-800">🗑️</span></button>
           </li>
         ))}
         </ul>
