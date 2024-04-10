@@ -2,7 +2,7 @@
 import Footer from "./components/footer";
 import Header from "./components/header";
 
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 
 import { Albert_Sans } from "next/font/google";
